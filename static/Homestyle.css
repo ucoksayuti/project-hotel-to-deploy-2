@@ -1,0 +1,283 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+margin: 0;
+background-color: white;
+}
+
+section {
+padding: 0px 150px;
+text-align: center;
+}
+
+/* start navbar */
+
+.navbar {
+padding: 10px 0px;
+position:static;
+backdrop-filter: blur(15px);
+}
+
+.navbar a {
+float: left;
+display: block;
+color: grey;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 20px;
+}
+
+a:hover {
+  color: #139e61;
+  font-weight: 600
+}
+
+.collapse {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-SignIn {
+  padding: 10px 25px;
+  background-color: transparent;
+  border: 2px solid #24AB70;
+  color: #24AB70;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.btn-SignUp {
+  padding: 10px 25px;
+  background-color: #24AB70;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  border: none;
+}
+
+.btn-SignIn:hover {
+  border-color: #118855;
+  color: #118855;
+}
+
+.btn-SignUp:hover {
+  background-color: #118855;
+}
+
+/* end navbar */
+
+/* start header */
+
+.TextGrad {
+  font-size: 4vw;
+  max-width: 100%;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(#DFC38D, #24AB70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.TextNotGrad {
+  font-size: 4vw;
+  max-width: 100%;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.descheader {
+  font-size: 25px;
+  max-width: 100%;
+}
+
+.imgheader {
+  max-width: 100vh;
+  height: 100%;
+  border-radius: 0px 40px 0px 0px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0px;
+  justify-content: space-between;
+}
+
+.boxheader {
+  width: 100%;
+  height: auto;
+  top: 70vh;
+  position: absolute;
+  padding: 20px 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.boxform {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  vertical-align: center;
+  max-width: 100%;
+}
+
+.boxform input {
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+  background-color: transparent;
+}
+
+.btnbook {
+  background-color: #24AB70;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 25px;
+}
+
+.btnbook:hover {
+  background-color: #118855;
+}
+
+/* end header */
+
+
+
+/* start section1 */
+
+.content-section1 {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+}
+
+.descsection {
+  font-size: 16px;
+  color: #646464;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 20px;
+}
+
+.card-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #646464;
+}
+
+.night-room {
+  font-size: 12px;
+  color: #646464;
+}
+
+.card-rating {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.staricon {
+  width: 10px;
+  height: 10px;
+}
+
+.review-rating {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.rat-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rat-btn a {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: #24AB70;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+/* ennd section1 */
+
+
+/* start section2 */
+
+.faci-section {
+  display: flex;
+  flex-direction: row;
+  background-color: #dcfff0;
+}
+
+.faci-teks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.faci-list {
+
+}
+
+
+
+/* end section2 */
+
+
+/* start footer */
+
+footer {
+  background-color: #24AB70;
+  padding: 50px 150px;
+}
+
+footer p, li {
+  color:white
+}
+
+.divmdsicon {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.medsosicon {
+  width: 25px;
+  height: 100%;
+}
+
+.cntct li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.contacticon {
+  width: 25px;
+  height: 25px;
+}
+
+/* end footer */

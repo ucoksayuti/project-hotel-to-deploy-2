@@ -1,0 +1,211 @@
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-Regular.ttf);
+}
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-Bold.ttf);
+  font-weight: 700;
+}
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #24ab70;
+  --third-color: #646464;
+  --color-text: #041e00;
+}
+
+* {
+  font-family: "Noto Sans", sans-serif;
+  color: var(--color-text);
+}
+
+body {
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 100vh;
+  height: auto;
+}
+
+form {
+  width: 50vh;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.062);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+form .title span {
+  font-size: 50px;
+  font-weight: 700;
+  background: linear-gradient(#dfc38d, #24ab70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+form .title p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.title .roww {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.title .roww p {
+  font-size: 18px;
+  color: #24ab70;
+}
+
+.title .roww b {
+  font-size: 18px;
+  font-weight: bold;
+  color: #041e00;
+}
+
+.title .row {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.row p {
+  font-size: 16px;
+  color: #929292;
+}
+
+.row a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #24ab70;
+}
+
+.form-signup form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
+
+.form-item label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #646464;
+}
+
+.form-item input {
+  border-radius: 15px;
+  padding: 15px 15px;
+  border: 0.5px solid #646464;
+}
+
+.submit {
+  background-color: #24ab70;
+  padding: 15px 25px;
+  color: white;
+  width: 80%;
+  border-radius: 20px;
+  border: none;
+}
+
+.form-or {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-or hr {
+  width: 120px;
+  color: #646464;
+}
+
+.form-or p {
+  font-size: 12px;
+  color: #646464;
+}
+
+.form-medsos {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+}
+
+.form-medsos-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.SignUp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.background {
+  width: 50%;
+  height: auto;
+}
+
+.background img {
+  width: 100%;
+  height: auto;
+}
+
+.password-toggle-icon {
+  color: #24ab70;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.pw {
+  position: relative;
+  display: inline-block;
+  border-radius: 15px;
+  border: 1px solid grey;
+}

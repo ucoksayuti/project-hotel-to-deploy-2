@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:opsz@10..48&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/assets/dist/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../static/assets/dist/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/gallery.css" />
+    
+    <title>Harmony Resort | Gallery</title>
+
+  </head>
+  <style>
+    .button1 {
+      background-color: #24ab70;
+      border-radius: 30px;
+    }
+  </style>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+      <div class="container">
+        <a href="/"><img src="../static/assets/img/LogoHarmonyGolden.png" style="width: 100px" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="mx-auto text-center navbar-nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/rooms">Rooms</a>
+            <a class="nav-link active" href="/gallery">Gallery</a>
+            <a class="nav-link" href="/contact">Contact Us</a>
+            <a class="nav-link" href="/about">About Us</a>
+          </div>
+          <div class="text-center auth">
+            {% if 'email' in session %}
+            <!-- Jika pengguna sudah login, tampilkan nama depan dan belakang -->
+            <div class="nav-user d-flex align-items-center justify-content-center">
+              <p class="mb-0">Hello, {{ session['first_name'] }} {{ session['last_name'] }}</p>
+              <a href="/logout" class="btn-SignOut">| Logout</a>
+            </div>
+            {% else %}
+            <!-- Jika pengguna belum login, tampilkan button Sign In dan Sign Up -->
+            <a href="/signin" class="btn-SignIn">Sign In</a>
+            <a href="/signup" class="btn-SignUp text-decoration-none">Sign Up</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Navbar -->
+
+    <!-- Start Gallery -->
+    <section class="Gallery" style="margin-top: 150px; margin-bottom: 100px;">
+      <div class="container" style="gap: 50px; display: flex; flex-direction: column">
+        <div class="Gal-teks text-center">
+          <h2>Gallery</h2>
+          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry</p>
+        </div>
+
+        <div class="Gal-image d-flex flex-row">
+          <div class="Gal-img-section" data-aos="fade-up" data-aos-duration="1000">
+            <div class="zoom-wrapper">
+              <img src="../static/assets/img/gymspace.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper v-stretch">
+              <img src="../static/assets/img/resto.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper h-stretch">
+              <img src="../static/assets/img/Pool.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper v-stretch">
+              <img src="../static/assets/img/Gallery/gallery.jpg" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper big-stretch">
+              <img src="../static/assets/img/breakfast.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+          </div>
+          <div class="Gal-img-section" data-aos="fade-up" data-aos-duration="1000">
+            <div class="zoom-wrapper">
+              <img src="../static/assets/img/Hotspot.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper h-stretch">
+              <img src="../static/assets/img/fitnessroom.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper v-stretch">
+              <img src="../static/assets/img/Gallery/gallery.jpg" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper v-stretch">
+              <img src="../static/assets/img/calm.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper big-stretch">
+              <img src="../static/assets/img/caffe.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+          </div>
+          <div class="Gal-img-section" data-aos="fade-up" data-aos-duration="1000">
+            <div class="zoom-wrapper v-stretch">
+              <img src="../static/assets/img/lobby.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper big-stretch">
+              <img src="../static/assets/img/breakfast.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper">
+              <img src="../static/assets/img/Hotspot.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper v-stretch">
+              <img src="../static/assets/img/resto.avif" class="Gal-item" alt="" />
+              <div class="overlay">
+                <h2>Single Room</h2>
+              </div>
+            </div>
+            <div class="zoom-wrapper h-stretch">
+              <img src="../static/assets/img/breakfast2.avif" class="Gal-item" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end Gallery -->
+
+    <!-- start footer -->
+
+    <footer>
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="../static/assets/img/LogoHarmony.png" style="width: 100px" class="mb-2" />
+          <p class="fw-medium">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum is simply dummy text of the printing and typesetting industry</p>
+          <div class="divmdsicon">
+            <p class="fw-medium">follow us</p>
+            <img src="../static/assets/img/iglogo.png" alt="" class="medsosicon" />
+            <img src="../static/assets/img/twiterlogo.png" alt="" class="medsosicon" />
+            <img src="../static/assets/img/fbwhitelogo.png" alt="" class="medsosicon" />
+          </div>
+        </div>
+        <div class="Quick col-lg-4" style="gap: 20px">
+          <h4>Quick Link</h4>
+          <li class="fw-medium"><a href="/">Home</a></li>
+          <li class="fw-medium"><a href="/rooms">Rooms</a></li>
+          <li class="fw-medium"><a href="/gallery">Gallery</a></li>
+          <li class="fw-medium"><a href="/contact">Contact Us</a></li>
+          <li class="fw-medium"><a href="/about">About Us</a></li>
+        </div>
+        <div class="cntct col-lg-4">
+          <h4>Contact Us</h4>
+          <li>
+            <i class="fa-solid fa-phone" style="color: white"></i>
+            <p class="fw-medium">08892334832</p>
+          </li>
+          <li class="fa-solid fa-envelope">
+            <p class="fw-medium">HarmonyResort@gmail.com</p>
+          </li>
+          <li class="fa-solid fa-location-pin">
+            <p class="fw-medium">188 M.13 T.Padaet, Muang, Chiang Mai, 50100, Thailand Call. 053 271 616</p>
+          </li>
+        </div>
+      </div>
+    </footer>
+
+    <!-- end footer -->
+
+    <script src="../static/assets/js/main.js"></script>
+    <script src="../static/assets/dist/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

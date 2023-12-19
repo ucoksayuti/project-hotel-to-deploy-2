@@ -1,0 +1,378 @@
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-Regular.ttf);
+}
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: Noto Sans;
+  src: url(../fonts/NotoSans-Bold.ttf);
+  font-weight: 700;
+}
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #24ab70;
+  --third-color: #646464;
+  --color-text: #000000;
+}
+
+* {
+  font-family: "Noto Sans", sans-serif;
+  color: var(--color-text);
+}
+
+  /* start navbar */
+  .navbar {
+    padding: 20px 0px;
+    background-color: white;
+  }
+  
+  .navbar .navbar-nav .nav-link {
+    color: var(--third-color);
+    font-size: 20px;
+    padding: 14px 16px;
+  }
+  
+  .navbar .navbar-nav .nav-link.active {
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  .navbar .navbar-nav .nav-link:hover {
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  .nav-user {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .nav-user p {
+    font-size: medium;
+    font-weight: bold;
+    color: #002403;
+  }
+  
+  .nav-user a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #118855;
+  }
+  
+  .auth .btn-SignIn {
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 2px solid #24ab70;
+    color: #24ab70;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+  }
+  
+  .auth .btn-SignUp {
+    padding: 10px 25px;
+    background-color: #24ab70;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    border: none;
+  }
+  
+  .btn-SignIn:hover {
+    border-color: #118855;
+    color: #118855;
+  }
+  
+  .btn-SignUp:hover {
+    background-color: #118855;
+  }
+
+  /* end navbar */
+
+.collapse {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-content {
+  margin: 1000px auto;
+  gap: 10px;
+}
+
+.the-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+footer {
+  margin-top: 100px;
+  width: 100%;
+}
+
+.left-content > .image > img {
+  border-radius: 24px;
+}
+
+.left-content .name {
+  font-size: 25px;
+  font-weight: bold;
+  color: #002403    ;
+}
+.left-content .price {
+  font-size: 32px;
+  font-weight: bold;
+  color: #f8bf14;
+}
+
+.icon-green {
+  fill: #24ab70;
+}
+
+.wifi {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.wifi > .img {
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+}
+
+.wifi > .img > img {
+  width: 100%;
+}
+
+.wifi > p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #24ab70;
+}
+
+.facility {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.facility > .left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.icon-gray {
+  fill: #646464;
+}
+
+.icon-right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-right > .img {
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-right > .img > img {
+  width: 100%;
+}
+
+.icon-right > p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #646464;
+}
+.facility > .right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.left-content > .wifi > p {
+  color: #646464;
+  font-weight: 300;
+}
+
+.left-content > .wifi {
+  margin-top: 20px;
+}
+
+.Result {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-booknow {
+  background-color: #24ab70;
+  color: white;
+  border: none;
+  padding: 10px 35px;
+  border-radius: 10px;
+  height: 50px;
+  font-weight: bold;
+}
+
+.btn-edit {
+  background-color: #eabd28;
+  color: white;
+  border: none;
+  padding: 10px 35px;
+  border-radius: 10px;
+  height: 50px;
+  font-weight: bold;
+}
+
+
+.btn-booknow:hover {
+  background-color: #118855;
+}
+
+.middle-content {
+  margin-bottom: 30px;
+}
+
+.ringkasan {
+  display: none;
+}
+
+#result {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.ringkasan > .title {
+  font-size: 25px;
+  font-weight: bold;
+  background: linear-gradient(#dfc38d, #24ab70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.res-content {
+  display: flex;
+  gap: 100px;
+  margin-bottom: 20px;
+}
+
+.fill {
+  margin-bottom: 15px;
+}
+
+.fill > h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.fill > p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9d9daa;
+}
+
+.time > .ket > p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9d9daa;
+  margin-bottom: 20px;
+}
+
+.tombol-ajah {
+  display: flex;
+  gap: 20px;
+}
+
+/* tryy */
+
+/* Start Footer */
+footer {
+  background-color: #24ab70;
+  padding: 50px 150px;
+  border-bottom: 1px solid white;
+}
+
+footer p,
+li {
+  color: white;
+}
+
+footer h4 {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.divmdsicon {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.medsosicon {
+  width: 25px;
+  height: 100%;
+}
+
+.Quick li a {
+  text-decoration: none;
+  color: white;
+}
+
+.cntct li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+footer.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  gap: 8px;
+  text-align: center;
+}
+
+.legal > a {
+  margin-right: 4px;
+  color: white;
+  text-decoration: none;
+}
+
+.legal,
+.copyright {
+  font-size: 12px;
+}
+
+/* end footer */

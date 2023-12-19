@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/assets/dist/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../static/assets/dist/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <meta property="og:Name" content="My website Name" />
+    <meta property="og:Price" content="Summary of the contents of the page you are viewing" />
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
+    <!-- style animate  -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <title>Harmony Resort | Rooms</title>
+  </head>
+
+  <body>
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm animate__animated animate__fadeInDown animate__delay-0.3s">
+      <div class="container">
+        <a href="/"><img src="../static/assets/img/LogoHarmonyGolden.png" style="width: 100px" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="mx-auto text-center navbar-nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link active" href="/rooms">Rooms</a>
+            <a class="nav-link" href="/gallery">Gallery</a>
+            <a class="nav-link" href="/contact">Contact Us</a>
+            <a class="nav-link" href="/about">About Us</a>
+          </div>
+          <div class="text-center auth">
+            {% if 'email' in session %}
+            <!-- Jika pengguna sudah login, tampilkan nama depan dan belakang -->
+            <div class="nav-user d-flex align-items-center justify-content-center">
+              <p class="mb-0">Hello, {{ session['first_name'] }} {{ session['last_name'] }}</p>
+              <a href="/logout" class="btn-SignOut">| Logout</a>
+            </div>
+            {% else %}
+            <!-- Jika pengguna belum login, tampilkan button Sign In dan Sign Up -->
+            <a href="/signin" class="btn-SignIn">Sign In</a>
+            <a href="/signup" class="btn-SignUp text-decoration-none">Sign Up</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- End Navbar -->
+
+    <section class="rooms">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col text-center" data-aos="fade-up">
+              <h2 class="title">Our Most Popular Rooms</h2>
+              <p>Lorem ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+          </div>
+          <div class="row">
+            {% for article in articles %}
+            <div class="col-lg-4 mb-5" data-aos="fade-up" data-aos-duration="2000">
+              <div class="card">
+                <img src="{{article.file}}" class="img-room">
+                <div class="content d-flex justify-content-between align-items-end">
+                  <div class="desc">
+                    <h4 class="fw-bold">{{article.Name}}</h4>
+                    <div class="text-price">
+                      <p class="card-price">Rp {{article.Price}}</p>
+                      <p class="card-price-desc">/Night/Room</p>
+                    </div>
+                    <div class="rating">
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <p style="font-weight:bold">4,7</p>
+                    </div>
+                  </div>
+                  <div>
+                    <!-- Mengubah button menjadi anchor tag -->
+                    <a href="{{ url_for('booking', room_type=article.Name) }}" class="btn-booknow" style="text-decoration: none;">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- <div class="row" id="table-body">
+          </div> -->
+        </div>
+      </section>
+      <!-- Rooms -->
+
+    <!-- start footer -->
+
+    <footer>
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="../static/assets/img/LogoHarmony.png" style="width: 100px" class="mb-2" />
+          <p class="fw-medium">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum is simply dummy text of the printing and typesetting industry</p>
+          <div class="divmdsicon">
+            <p class="fw-medium">follow us</p>
+            <img src="../static/assets/img/iglogo.png" alt="" class="medsosicon" />
+            <img src="../static/assets/img/twiterlogo.png" alt="" class="medsosicon" />
+            <img src="../static/assets/img/fbwhitelogo.png" alt="" class="medsosicon" />
+          </div>
+        </div>
+        <div class="Quick col-lg-4" style="gap: 20px">
+          <h4>Quick Link</h4>
+          <li class="fw-medium"><a href="/">Home</a></li>
+          <li class="fw-medium"><a href="/rooms">Rooms</a></li>
+          <li class="fw-medium"><a href="/gallery">Gallery</a></li>
+          <li class="fw-medium"><a href="/contact">Contact Us</a></li>
+          <li class="fw-medium"><a href="/about">About Us</a></li>
+        </div>
+        <div class="cntct col-lg-4">
+          <h4>Contact Us</h4>
+          <li>
+            <i class="fa-solid fa-phone" style="color: white"></i>
+            <p class="fw-medium">08892334832</p>
+          </li>
+          <li class="fa-solid fa-envelope">
+            <p class="fw-medium">HarmonyResort@gmail.com</p>
+          </li>
+          <li class="fa-solid fa-location-pin">
+            <p class="fw-medium">188 M.13 T.Padaet, Muang, Chiang Mai, 50100, Thailand Call. 053 271 616</p>
+          </li>
+        </div>
+      </div>
+    </footer>
+    <footer class="bottom">
+      <p class="copyright"><b style="color: white">LearningX | Last Project Studi Independent © 2023</b></p>
+      <div class="legal">
+        <a href="">Group5 | Putri Rhamadani, Ucok Sayuti, Muhammad Alfan</a>
+      </div>
+    </footer>
+
+    <!-- end footer -->
+
+    <link rel="stylesheet" href="../static/assets/css/rooms.css">
+    <script src="../static/assets/dist/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

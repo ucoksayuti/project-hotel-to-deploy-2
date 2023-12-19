@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/assets/dist/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/Signin.css" />
+
+    <title>Harmony Resort | Login</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-signup">
+        <form action="{{ url_for('signin') }}" method="post">
+          <div class="title">
+            <span>Sign In</span>
+            <div class="roww">
+              <p>Hallo,</p>
+              <b> Welcome back!</b>
+            </div>
+            <div class="row">
+              <p>Don't have an account yet?</p>
+              <a style="text-decoration: none" href="/signup">Sign Up</a>
+            </div>
+          </div>
+          <div class="form-list">
+            <div class="form-item">
+              <label for="email">Email </label>
+              <input type="email" name="email" required placeholder="Enter your email" />
+            </div>
+            <div class="form-item" style="position: relative;">
+              <label for="password">Password </label>
+              <div class="pw">
+                <input id="password" type="password" name="password" required placeholder="Enter your password" style="border: none;">
+                <span toggle="#password" class="password-toggle-icon fa fa-eye-slash fa-lg"></span>
+              </div>
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  <div class="alert alert-danger" style="font-size: small; color: red;">
+                    {% for category, message in messages %}
+                      {{ message }}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              {% endwith %}
+            </div>
+          </div>
+
+          <div class="SignIn">
+            <input class="submit" type="submit" value="Sign In" style="cursor:pointer" />
+          </div>
+
+          <div class="form-or">
+            <hr />
+            <p>or</p>
+            <hr />
+          </div>
+
+          <div class="form-medsos">
+            <img class="form-medsos-icon" src="../static/assets/img/googlelogo.png"></img>
+            <img class="form-medsos-icon" src="../static/assets/img/applelogo.png"></img>
+            <img class="form-medsos-icon" src="../static/assets/img/fblogo.png"></img>
+          </div>
+        </form>
+      </div>
+
+      <div class="background">
+        <img src="../static/assets/img/imgheader.avif" alt="" class="bgimg" />
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function validateEmail() {
+      let email = $("#your_email_input_id").val();
+
+      $.ajax({
+        type: "GET",
+        url: `/admin/checkemail/${email}`,
+        success: function (response) {
+          console.log(response);
+          // Email tersedia, Anda dapat melanjutkan dengan tindakan lain jika diperlukan.
+        },
+        error: function (error) {
+          console.error(error);
+          alert(error.responseJSON.message); // Tampilkan pesan kesalahan kepada pengguna
+        },
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const passwordToggleIcons = document.querySelectorAll('.password-toggle-icon');
+    passwordToggleIcons.forEach(function (icon) {
+      icon.addEventListener('click', function () {
+        const passwordField = document.querySelector(this.getAttribute('toggle'));
+        if (passwordField.type === 'password') {
+          passwordField.type = 'text';
+          this.classList.remove('fa-eye-slash');
+          this.classList.add('fa-eye');
+        } else {
+          passwordField.type = 'password';
+          this.classList.remove('fa-eye');
+          this.classList.add('fa-eye-slash');
+        }
+      });
+    });
+  });
+  </script>
+</html>

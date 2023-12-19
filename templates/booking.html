@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Reservation</title>
+    <!-- Link to a datepicker library, for example, jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    <link rel="stylesheet" href="../static/assets/dist/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../static/assets/dist/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/booking.css">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <meta property="og:Name" content="My website Name" />
+    <meta property="og:Price" content="Summary of the contents of the page you are viewing" />
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='booking.css')}}">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <script src="{{ url_for('static', filename='booking.js')}}"></script>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm animate__animated animate__fadeInDown animate__delay-0.3s">
+        <div class="container">
+          <a href="/"><img src="../static/assets/img/LogoHarmonyGolden.png" style="width: 100px" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="mx-auto text-center navbar-nav">
+              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link active" href="/rooms">Rooms</a>
+              <a class="nav-link" href="/gallery">Gallery</a>
+              <a class="nav-link" href="/contact">Contact Us</a>
+              <a class="nav-link" href="/about">About Us</a>
+            </div>
+            <div class="text-center auth">
+              {% if 'email' in session %}
+              <!-- Jika pengguna sudah login, tampilkan nama depan dan belakang -->
+              <div class="nav-user d-flex align-items-center justify-content-center">
+                <p class="mb-0">Hello, {{ session['first_name'] }} {{ session['last_name'] }}</p>
+                <a href="/logout" class="btn-SignOut">| Logout</a>
+              </div>
+              {% else %}
+              <!-- Jika pengguna belum login, tampilkan button Sign In dan Sign Up -->
+              <a href="/signin" class="btn-SignIn">Sign In</a>
+              <a href="/signup" class="btn-SignUp text-decoration-none">Sign Up</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+      <!-- Navbar -->
+
+
+    <!-- content start here broo! -->
+
+    <section class="" style="margin-top: 50px;">
+        <div class="container row">
+            <div class="col-4">
+                <div class="left-content">
+                    <div class="image">
+                        <img src="{{selected_room.file}}" alt="">
+                    </div>
+                    <p class="name">{{selected_room.Name}}</p>
+                    <p class="price">Rp {{selected_room.Price}}</p>
+                    <div class="facility">
+                        <div class="left">
+                            <div class="wifi">
+                                <div class="img">
+                                    <img src="../static/assets/img/icon-booking/wifi.png" alt="">
+                                </div>
+                                <p>Free Wifi</p>
+                            </div>
+                            <div class="wifi">
+                                <div class="img">
+                                    <img src="../static/assets/img/icon-booking/breakfast.png" alt="">
+                                </div>
+                                <p>Free Breakfast</p>
+                            </div>
+                            <div class="wifi">
+                                <div class="img">
+                                    <img src="../static/assets/img/icon-booking/smoking.png" alt="">
+                                </div>
+                                <p>Non-smoking</p>
+                            </div>
+                            <div class="wifi">
+                                <div class="img">
+                                    <img src="../static/assets/img/icon-booking/swimming.png" alt="">
+                                </div>
+                                <p>Swimming Pool</p>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <div class="icon-right">
+                                <div class="img">
+                                    <img src="../static/assets/img/icon-booking/none.png">
+                                </div>
+                                <p>Non-refundable</p>
+                            </div>
+                            <div class="icon-right">
+                                <div class="img">
+                                    <img src="../static/assets/img/icon-booking/none.png" alt="">
+                                </div>
+                                <p>Non-rescheduleable</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wifi">
+                        <div class="img">
+                            <img src="../static/assets/img/icon-booking/dollar.png" alt="">
+                        </div>
+                        <p>Installment plans are available for credit card users!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="middle-content">
+                                <div class="check-in">
+                                    <form id="reservationForm" action="/submit-form" method="post" class="form-group">
+                                        <label for="entryDate" class="form-label align-content-start">CHECK IN</label>
+                                        <input type="date" id="entryDate" class="form-control"
+                                            placeholder="Masukkan tanggal check in" name="entryDate">
+                                    </form>
+                                </div>
+                                <div class="check-in">
+                                    <form id="reservationForm" action="/submit-form" method="post" class="form-group">
+                                        <label for="numberOfPeople" class="form-label align-content-start">GUEST</label>
+                                        <input type="number" id="numberOfPeople" class="form-control"
+                                            name="numberOfPeople" min="1">
+                                    </form>
+                                </div>
+                                <div class="check-in">
+                                    <form id="reservationForm" action="/submit-form" method="post" class="form-group">
+                                        <label for="ordererName" class="form-label align-content-start">NAME</label>
+                                        <input type="text" id="ordererName" class="form-control" name="ordererName">
+                                    </form>
+                                </div>
+                                <div class="check-in">
+                                    <form id="reservationForm" action="/submit-form" method="post" class="form-group">
+                                        <label for="ordererEmail" class="form-label align-content-start">EMAIL</label>
+                                        <input type="email" id="ordererEmail" class="form-control" name="ordererEmail">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="middle-content">
+                                <div class="check-in">
+                                    <form id="reservationForm" action="/submit-form" method="post" class="form-group">
+                                        <label for="exitDate" class="form-label align-content-start">CHECK OUT</label>
+                                        <input type="date" id="exitDate" class="form-control" name="exitDate">
+                                    </form>
+                                </div>
+                                <div class="check-in">
+                                    <form id="reservationForm" action="/submit-form" method="post" class="form-group">
+                                        <label for="roomType" class="form-label align-content-start">ROOM</label>
+                                        <input type="text" id="roomType" class="form-control" name="roomType" value="{{selected_room.Name}}">
+                                    </form>
+                                </div>
+                                <div class="check-in">
+                                    <form id="reservationForm" action="/submit-form" method="post" class="form-group">
+                                        <label for="ordererPhoneNumber" class="form-label align-content-start">NO
+                                            HP</label>
+                                        <input type="tel" id="ordererPhoneNumber" class="form-control"
+                                            name="ordererPhoneNumber">
+                                    </form>
+                                </div>
+                        
+                                <div class="check-in">
+                                    <form id="reservationForm" action="/submit-form" method="post" class="form-group">
+                                        <label for="roomType" class="form-label align-content-start">PAYMENT
+                                            METHOD</label>
+                                        <select id="metodePembayaran" name="metodePembayaran" class="form-control">
+                                            <option value="Shopeepay">Shopeepay: 0822-8778-4756</option>
+                                            <option value="bni">BNI: 37652384623</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <div class="save-btn">
+                                    <button class="btn-booknow" type="button"
+                                        onclick="checkLoginAndSubmit()">SAVE</button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                                        <div class="ringkasan" id="result">
+                                            <div class="title">
+                                                <p>Your Stay</p>
+                                            </div>
+                                            <div class="res-content">
+                                                <div class="kiri">
+                                                    <div class="fill">
+                                                        <h3>Nama</h3>
+                                                        <p>-</p>
+                                                    </div>
+                                                    <div class="fill">
+                                                        <h3>Check In</h3>
+                                                        <p>-</p>
+                                                    </div>
+                                                </div>
+                                                <div class="kanan">
+                                                    <div class="fill">
+                                                        <h3>Email</h3>
+                                                        <p>-</p>
+                                                    </div>
+                                                    <div class="fill">
+                                                        <h3>Check Out</h3>
+                                                        <p>-</p>
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                            <div class="time">
+                                                <div class="ket">
+                                                    <p>-</p>
+                                                    <p></p>
+                                                    <p>-</p>
+                                                </div>
+                                                <div class="tombol-ajah">
+                                                    <div class="save-btn">
+                                                        <button class="btn-booknow" onclick="booking"()>Book Now</button>
+                                                    </div>
+                                                    <div class="edit-btn">
+                                                        <button class="btn-edit" onclick="edit">Edit</button>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- content end here brooo -->
+
+        <script>
+            function checkLoginAndSubmit() {
+                // Cek apakah pengguna sudah login
+                {% if 'email' in session %}
+                    // Jika sudah login, panggil fungsi submitReservation
+                    submitReservation();
+                {% else %}
+                    // Jika belum login, redirect ke halaman login
+                    window.location.href = "/signin";
+                {% endif %}
+            }
+        
+            // Fungsi submitReservation tetap sama seperti sebelumnya
+            function submitReservation() {
+                // ... (kode submitReservation tetap sama) ...
+            }
+        
+            // ... (fungsi lainnya) ...
+        </script>
+
+    <!-- start footer -->
+
+    <footer>
+        <div class="row">
+          <div class="col-lg-4">
+            <img src="../static/assets/img/LogoHarmony.png" style="width: 100px" class="mb-2" />
+            <p class="fw-medium">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum is simply dummy text of the printing and typesetting industry</p>
+            <div class="divmdsicon">
+              <p class="fw-medium">follow us</p>
+              <img src="../static/assets/img/iglogo.png" alt="" class="medsosicon" />
+              <img src="../static/assets/img/twiterlogo.png" alt="" class="medsosicon" />
+              <img src="../static/assets/img/fbwhitelogo.png" alt="" class="medsosicon" />
+            </div>
+          </div>
+          <div class="Quick col-lg-4" style="gap: 20px">
+            <h4>Quick Link</h4>
+            <li class="fw-medium"><a href="/">Home</a></li>
+            <li class="fw-medium"><a href="/rooms">Rooms</a></li>
+            <li class="fw-medium"><a href="/gallery">Gallery</a></li>
+            <li class="fw-medium"><a href="/contact">Contact Us</a></li>
+            <li class="fw-medium"><a href="/about">About Us</a></li>
+          </div>
+          <div class="cntct col-lg-4">
+            <h4>Contact Us</h4>
+            <li>
+              <i class="fa-solid fa-phone" style="color: white"></i>
+              <p class="fw-medium">08892334832</p>
+            </li>
+            <li class="fa-solid fa-envelope">
+              <p class="fw-medium">HarmonyResort@gmail.com</p>
+            </li>
+            <li class="fa-solid fa-location-pin">
+              <p class="fw-medium">188 M.13 T.Padaet, Muang, Chiang Mai, 50100, Thailand Call. 053 271 616</p>
+            </li>
+          </div>
+        </div>
+      </footer> 
+      <footer class="bottom">
+        <p class="copyright"><b style="color: white">LearningX | Last Project Studi Independent © 2023</b></p>
+        <div class="legal">
+          <a href="">Group5 | Putri Rhamadani, Ucok Sayuti, Muhammad Alfan</a>
+        </div>
+      </footer>
+  
+      <!-- end footer -->
+
+
+        <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+
+
+        <script src="../static/assets/js/booking.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<!-- tryy -->

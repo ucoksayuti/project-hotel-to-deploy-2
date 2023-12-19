@@ -1,0 +1,260 @@
+@font-face {
+    font-family: Noto Sans;
+    src: url(../fonts/NotoSans-Regular.ttf);
+  }
+  @font-face {
+    font-family: Noto Sans;
+    src: url(../fonts/NotoSans-Light.ttf);
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: Noto Sans;
+    src: url(../fonts/NotoSans-Medium.ttf);
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: Noto Sans;
+    src: url(../fonts/NotoSans-SemiBold.ttf);
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: Noto Sans;
+    src: url(../fonts/NotoSans-Bold.ttf);
+    font-weight: 700;
+  }
+  
+  :root {
+    --primary-color: #ffffff;
+    --secondary-color: #24ab70;
+    --third-color: #646464;
+    --color-text: #000000;
+  }
+  
+  * {
+    font-family: "Noto Sans", sans-serif;
+    color: var(--color-text);
+  }
+
+  /* start navbar */
+.navbar {
+    padding: 20px 0px;
+    background-color: white;
+  }
+  
+  .navbar .navbar-nav .nav-link {
+    color: var(--third-color);
+    font-size: 20px;
+    padding: 14px 16px;
+  }
+  
+  .navbar .navbar-nav .nav-link.active {
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  .navbar .navbar-nav .nav-link:hover {
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  .nav-user {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .nav-user p {
+    font-size: medium;
+    font-weight: bold;
+    color: #002403;
+  }
+  
+  .nav-user a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #118855;
+  }
+  
+  .auth .btn-SignIn {
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 2px solid #24ab70;
+    color: #24ab70;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+  }
+  
+  .auth .btn-SignUp {
+    padding: 10px 25px;
+    background-color: #24ab70;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    border: none;
+  }
+  
+  .btn-SignIn:hover {
+    border-color: #118855;
+    color: #118855;
+  }
+  
+  .btn-SignUp:hover {
+    background-color: #118855;
+  }
+
+  /* end navbar */
+
+
+/* Start Gallery */
+
+.Gal-teks h2 {
+    font-weight: bold;
+    background: linear-gradient(#dfc38d, #24ab70);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .Gal-teks p {
+    font-size: 16px;
+    color: #646464;
+  }
+  
+  .zoom-wrapper {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 10px;
+  }
+  
+  .zoom-wrapper .Gal-item {
+    object-fit: cover;
+    transition: transform 0.8s;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .zoom-wrapper:hover .Gal-item {
+    transform: scale(1.5);
+  }
+  
+  .Gal-item {
+    padding: 10px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: 250px;
+  }
+  
+  .v-stretch {
+    grid-row: span 2;
+  }
+  
+  .h-stretch {
+    grid-column: span 2;
+  }
+  
+  .big-stretch {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  
+  .Gal-item div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .zoom-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ubah warna latar belakang sesuai kebutuhan */
+    color: #fff; /* Ubah warna teks sesuai kebutuhan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.zoom-wrapper:hover .overlay {
+    opacity: 1;
+}
+  
+  /* End Gallery */
+
+
+    /* Start Footer */
+footer {
+    background-color: #24ab70;
+    padding: 50px 150px;
+    border-bottom: 1px solid white;
+  }
+  
+  footer p,
+  li {
+    color: white;
+  }
+  
+  footer h4 {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .divmdsicon {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .medsosicon {
+    width: 25px;
+    height: 100%;
+  }
+
+  .Quick li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .cntct li {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  footer.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .legal > a {
+    margin-right: 4px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .legal, .copyright {
+    font-size: 12px;
+  }
+
+
+
+  /* end footer */

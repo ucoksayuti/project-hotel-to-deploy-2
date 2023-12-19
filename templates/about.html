@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../static/assets/dist/fontawesome/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:opsz@10..48&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/assets/css/about.css" />
+    <title>Harmony Resort | About</title>
+
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+      <div class="container">
+        <a href="/"><img src="../static/assets/img/LogoHarmonyGolden.png" style="width: 100px" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="mx-auto text-center navbar-nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/rooms">Rooms</a>
+            <a class="nav-link" href="/gallery">Gallery</a>
+            <a class="nav-link" href="/contact">Contact Us</a>
+            <a class="nav-link active" href="/about">About Us</a>
+          </div>
+          <div class="text-center auth">
+            {% if 'email' in session %}
+            <!-- Jika pengguna sudah login, tampilkan nama depan dan belakang -->
+            <div class="nav-user d-flex align-items-center justify-content-center">
+              <p class="mb-0">Hello, {{ session['first_name'] }} {{ session['last_name'] }}</p>
+              <a href="/logout" class="btn-SignOut">| Logout</a>
+            </div>
+            {% else %}
+            <!-- Jika pengguna belum login, tampilkan button Sign In dan Sign Up -->
+            <a href="/signin" class="btn-SignIn">Sign In</a>
+            <a href="/signup" class="btn-SignUp text-decoration-none">Sign Up</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+    <section class="" style="margin-top: 150px">
+      <div class="row text-center mb-3">
+        <div class="title">
+          <h2>Harmony Resort</h2>
+          <p>Harmony Resort is a hotel that has several locations including in Parga, Greece, Banjul, Gambia, and Chiang Mai, Thailand</p>
+        </div>
+      </div>
+      <div class="container card mb-3">
+        <img src="https://imgcld.yatra.com/ytimages/image/upload/t_seo_Hotel_w_930_h_550_c_fill_g_auto_q_40_f_jpg/v1561091536/Hotel/Alibag/00154747/Capture1_mt4i3M.jpg" class="card-img-top" alt="static" />
+        <div class="card-body">
+          <p class="card-text">
+            Hotel Harmony Resort is a luxury resort located in a beautiful location, offering a special stay experience. Surrounded by stunning natural scenery, this resort provides a variety of premium facilities, including an infinity
+            pool, luxury spa and five-star restaurant. With its elegant design and friendly service, Hotel Harmony Resort is the ideal choice for tourists looking for tranquility and luxury during their holiday. Apart from that, this resort
+            also offers a variety of recreational activities, from water sports to nature trekking, so guests can enjoy an unforgettable holiday.
+          </p>
+          <p class="card-text">
+            Hotel Harmony Resort offers various types of spacious and comfortable rooms, equipped with modern facilities such as flat-screen TVs, air conditioning and private bathrooms. Guests can choose from a variety of room types, from
+            standard rooms to luxury suites with stunning views. In addition, this resort also provides 24-hour room service and friendly and professional staff, ready to assist guests with all their needs.
+          </p>
+          <p class="card-text">
+            With a strategic location and complete facilities, Hotel Harmony Resort is the perfect destination for family holidays, honeymoons or even business events. This resort also offers attractive holiday packages, including wedding
+            packages and family holiday packages, so that guests can enjoy an unforgettable stay at Hotel Harmony Resort.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="../static/assets/img/LogoHarmony.png" style="width: 100px" class="mb-2" />
+          <p class="fw-medium">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum is simply dummy text of the printing and typesetting industry</p>
+          <div class="divmdsicon">
+            <p class="fw-medium">follow us</p>
+            <img src="../static/assets/img/iglogo.png" alt="" class="medsosicon" />
+            <img src="../static/assets/img/twiterlogo.png" alt="" class="medsosicon" />
+            <img src="../static/assets/img/fbwhitelogo.png" alt="" class="medsosicon" />
+          </div>
+        </div>
+        <div class="Quick col-lg-4" style="gap: 20px">
+          <h4>Quick Link</h4>
+          <li class="fw-medium"><a href="/">Home</a></li>
+          <li class="fw-medium"><a href="/rooms">Rooms</a></li>
+          <li class="fw-medium"><a href="/gallery">Gallery</a></li>
+          <li class="fw-medium"><a href="/contact">Contact Us</a></li>
+          <li class="fw-medium"><a href="/about">About Us</a></li>
+        </div>
+        <div class="cntct col-lg-4">
+          <h4>Contact Us</h4>
+          <li>
+            <i class="fa-solid fa-phone" style="color: white"></i>
+            <p class="fw-medium">08892334832</p>
+          </li>
+          <li class="fa-solid fa-envelope">
+            <p class="fw-medium">HarmonyResort@gmail.com</p>
+          </li>
+          <li class="fa-solid fa-location-pin">
+            <p class="fw-medium">188 M.13 T.Padaet, Muang, Chiang Mai, 50100, Thailand Call. 053 271 616</p>
+          </li>
+        </div>
+      </div>
+    </footer>
+    <footer class="bottom">
+      <p class="copyright"><b style="color: white">LearningX | Last Project Studi Independent © 2023</b></p>
+      <div class="legal">
+        <a href="">Group5 | Putri Rhamadani, Ucok Sayuti, Muhammad Alfan</a>
+      </div>
+    </footer>
+    <!-- end footer -->
+
+    <script src="../static/assets/dist/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
