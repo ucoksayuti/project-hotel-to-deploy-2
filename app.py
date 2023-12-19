@@ -7,7 +7,6 @@ from pymongo import MongoClient
 from pymongo import DESCENDING
 from datetime import datetime
 from bson import ObjectId
-import os
 import re
 
 dotenv_path = join(dirname(__file__), '.env')
